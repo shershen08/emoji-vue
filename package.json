@@ -13,7 +13,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
+    "nanoscroller": "^0.8.7",
     "onesignal-emoji-picker": "^1.0.0",
+    "tether": "^1.4.3",
     "vue": "^2.5.2"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 # vue-emoji
 
-> A Vue.js project
+A Vue.js project implementing a input field addon allowing to add emojis via dropdown.
+Based on code from https://github.com/OneSignal/emoji-picker
 
 ## Build Setup
 

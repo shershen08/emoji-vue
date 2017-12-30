@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <VueEmoji/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import VueEmoji from './components/VueEmoji'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    VueEmoji
   }
 }
 </script>
