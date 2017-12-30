@@ -1,10 +1,13 @@
 import Config from './config'
 import Tether from 'tether'
+import img_blank from '../img/blank.gif'
+import img0 from '../img/emoji_spritesheet_0.png'
+import img1 from '../img/emoji_spritesheet_1.png'
+import img2 from '../img/emoji_spritesheet_2.png'
+import img3 from '../img/emoji_spritesheet_3.png'
+import img4 from '../img/emoji_spritesheet_4.png'
 
-/**
- * This file also contains some modifications by Igor Zhukov in order to add
- * custom scrollbars to EmojiMenu See keyword `MODIFICATION` in source code.
- */
+
 (function($, window, document) {
 
 	function getGuid() {
@@ -243,6 +246,7 @@ import Tether from 'tether'
 	 * the icon is created from a spritesheet.
 	 */
 	EmojiArea.createIcon = function(emoji, menu) {
+		const sprites = [img0, img1, img2, img3, img4]
 		var category = emoji[0];
 		var row = emoji[1];
 		var column = emoji[2];
@@ -258,12 +262,14 @@ import Tether from 'tether'
 		var style = 'display:inline-block;';
 		style += 'width:' + iconSize + 'px;';
 		style += 'height:' + iconSize + 'px;';
-		style += 'background:url(\'' + filename.replace('!', category) + '\') '
-				+ xoffset + 'px ' + yoffset + 'px no-repeat;';
-		style += 'background-size:' + scaledWidth + 'px ' + scaledHeight
-				+ 'px;';
-		return '<img src="' + blankGifPath + '" class="img" style="'
-				+ style + '" alt="' + util.htmlEntities(name) + '">';
+
+const smileyCategoryFilename = sprites[category]
+
+		style += `background:url('${smileyCategoryFilename}')
+		 ${xoffset}px
+		  ${yoffset}px no-repeat;
+		   background-size:${scaledWidth}px ${scaledHeight}px;`;
+		return `<img src="${img_blank}" class="img" style="${style}" alt="${util.htmlEntities(name)}">`;
 	};
 	
 	$.emojiarea.createIcon = EmojiArea.createIcon;

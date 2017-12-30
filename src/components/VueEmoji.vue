@@ -14,22 +14,15 @@ import storageUtils from "./lib/js/util";
 import "./lib/js/jquery.emojiarea";
 import {EmojiPicker} from "./lib/js/emoji-picker";
 
-import './lib/img/IconsetSmiles.png'
+import * as img1 from './lib/img/IconsetSmiles.png'
 import './lib/img/IconsetSmiles_1x.png'
 import './lib/img/IconsetW.png'
 import './lib/img/IconsetW_1x.png'
-import './lib/img/blank.gif'
-import './lib/img/emoji_spritesheet_0.png'
-import './lib/img/emoji_spritesheet_1.png'
-import './lib/img/emoji_spritesheet_2.png'
-import './lib/img/emoji_spritesheet_3.png'
-import './lib/img/emoji_spritesheet_4.png'
 
 export default {
   name: "VueEmoji",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
       emojiData: ""
     };
   },
