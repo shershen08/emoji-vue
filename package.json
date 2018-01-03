@@ -1,9 +1,9 @@
 {
   "name": "vue-emoji",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "mkuz <michailkuznetsov@gmail.com>",
-  "private": true,
+  "version": "0.1.0",
+  "description": "Add emojis to your vuejs project",
+  "author": "Mikhail Kuznetcov <michail.kuznetsov@gmail.com>",
+  "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
