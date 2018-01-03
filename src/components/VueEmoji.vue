@@ -8,10 +8,22 @@
 
 <script>
 
+import {jQuery as $} from 'jquery';
+window.$ = $;
+window.jQuery = jQuery;
+
+import ns from 'nanoscroller/bin/javascripts/jquery.nanoscroller'
+
 import Vue from "vue";
 import "./lib/css/emoji.css";
+import "font-awesome/css/font-awesome.css";
+import "nanoscroller/bin/css/nanoscroller.css";
+
 import storageUtils from "./lib/js/util";
-import "./lib/js/jquery.emojiarea";
+import {emojiareaPlugin} from "./lib/js/jquery.emojiarea";
+
+emojiareaPlugin(window.jQuery, window, document)
+
 import {EmojiPicker} from "./lib/js/emoji-picker";
 
 import * as img1 from './lib/img/IconsetSmiles.png'
@@ -33,9 +45,6 @@ export default {
         assetsPath: "",
         popupButtonClasses: "fa fa-smile-o"
       })
-      // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-      // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-      // It can be called as many times as necessary; previously converted input fields will not be converted again
       window.emojiPicker.discover()
     }
   },

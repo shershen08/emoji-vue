@@ -8,7 +8,7 @@ import img3 from '../img/emoji_spritesheet_3.png'
 import img4 from '../img/emoji_spritesheet_4.png'
 
 
-(function($, window, document) {
+export const emojiareaPlugin = ($, window, document) => {
 
 	function getGuid() {
 		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -831,4 +831,4 @@ const smileyCategoryFilename = sprites[category]
     this.visible = true;
   };
 
-})(jQuery, window, document);
+};
