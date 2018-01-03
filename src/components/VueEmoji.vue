@@ -1,6 +1,6 @@
 <template>
-  <div class="vue-emoji-wraper">
-    <textarea cols="50" rows="10" data-emojiable="true"></textarea>
+  <div class="emoji-vue-wraper">
+    <textarea cols="50" rows="10" data-emojiable="true" class="emoji-vue-textarea"></textarea>
   </div>
 </template>
 
