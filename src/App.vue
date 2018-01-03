@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <VueEmoji/>
+    <VueEmoji @input="onInput"/>
+    <br><br><br><br>
+    You've typed: {{emojiData}}
   </div>
 </template>
 
@@ -9,6 +11,16 @@ import VueEmoji from './components/VueEmoji'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      emojiData: ""
+    };
+  },
+  methods : {
+    onInput(e){
+      this.emojiData = e.data
+    }
+  },
   components: {
     VueEmoji
   }

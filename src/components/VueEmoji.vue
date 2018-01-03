@@ -1,16 +1,12 @@
 <template>
-  <div class="hello">
-  <textarea cols="50" rows="10" data-emojiable="true" v-model="emojiData"></textarea>
-   <br>
-   {{emojiData}}
+  <div class="vue-emoji-wraper">
+    <textarea cols="50" rows="10" data-emojiable="true"></textarea>
   </div>
 </template>
 
 <script>
 
 import {jQuery as $} from 'jquery';
-window.$ = $;
-window.jQuery = jQuery;
 
 import ns from 'nanoscroller/bin/javascripts/jquery.nanoscroller'
 
@@ -21,9 +17,6 @@ import "nanoscroller/bin/css/nanoscroller.css";
 
 import storageUtils from "./lib/js/util";
 import {emojiareaPlugin} from "./lib/js/jquery.emojiarea";
-
-emojiareaPlugin(window.jQuery, window, document)
-
 import {EmojiPicker} from "./lib/js/emoji-picker";
 
 import * as img1 from './lib/img/IconsetSmiles.png'
@@ -31,19 +24,19 @@ import './lib/img/IconsetSmiles_1x.png'
 import './lib/img/IconsetW.png'
 import './lib/img/IconsetW_1x.png'
 
+emojiareaPlugin(jQuery, window, document)
+
 export default {
   name: "VueEmoji",
-  data() {
-    return {
-      emojiData: ""
-    };
-  },
   methods: {
     initEmojiPlugin() {
       window.emojiPicker = new EmojiPicker({
         emojiable_selector: "[data-emojiable=true]",
         assetsPath: "",
-        popupButtonClasses: "fa fa-smile-o"
+        popupButtonClasses: "fa fa-smile-o",
+        onChangecontent: (textAreaValue) => {
+          this.$emit('input', {data: textAreaValue})
+        }
       })
       window.emojiPicker.discover()
     }
@@ -58,20 +51,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+<style>
+.emoji-wysiwyg-editor {
   display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  width: 200px;
+  padding: 5px;
+  height: 50px;
 }
 </style>

@@ -141,6 +141,7 @@ export const emojiareaPlugin = ($, window, document) => {
 	})();
 
 	util.insertAtCursor = function(text, el) {
+		console.log('insertAtCursor')
 		text = ' ' + text;
 		var val = el.value, endIndex, startIndex, range;
 		if (typeof el.selectionStart != 'undefined'
@@ -218,9 +219,11 @@ export const emojiareaPlugin = ($, window, document) => {
 
 		this.$editor.on('focus', function() {
 			self.hasFocus = true;
+			self.options.onChangecontent(self.$textarea[0].value)
 		});
 		this.$editor.on('blur', function() {
 			self.hasFocus = false;
+			self.options.onChangecontent(self.$textarea[0].value)
 		});
 
     // Assign a unique instance of an emojiMenu to
@@ -303,6 +306,8 @@ const smileyCategoryFilename = sprites[category]
 		 * save recent emojis
 		 */
 		util.emojiInserted(emoji, this.menu);
+
+		console.log('change')
 		this.$textarea.trigger('change');
 	};
 
@@ -381,7 +386,8 @@ const smileyCategoryFilename = sprites[category]
       {
         e.preventDefault();
       }
-      self.updateBodyPadding(editorDiv);
+	  self.updateBodyPadding(editorDiv);
+	  self.options.onChangecontent(self.$textarea[0].value)
     });
 
 		if (this.options.onPaste) {
