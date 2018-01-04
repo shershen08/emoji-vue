@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <VueEmoji @input="onInput"/>
+    <VueEmoji @input="onInput" width="500"/>
     <br><br><br><br>
     You've typed: {{emojiData}}
   </div>
@@ -32,7 +32,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
