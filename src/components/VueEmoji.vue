@@ -6,13 +6,9 @@
 
 <script>
 
-import {jQuery as $} from 'jquery';
-
 import ns from 'nanoscroller/bin/javascripts/jquery.nanoscroller'
-
 import Vue from "vue";
 import "./lib/css/emoji.css";
-import "font-awesome/css/font-awesome.css";
 import "nanoscroller/bin/css/nanoscroller.css";
 
 import storageUtils from "./lib/js/util";
@@ -33,7 +29,7 @@ export default {
       window.emojiPicker = new EmojiPicker({
         emojiable_selector: "[data-emojiable=true]",
         assetsPath: "",
-        popupButtonClasses: "fa fa-smile-o",
+        popupButtonClasses: "smile-icon",
         onChangecontent: (textAreaValue) => {
           this.$emit('input', {data: textAreaValue})
         }
@@ -50,7 +46,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .emoji-wysiwyg-editor {
   display: inline-block;
@@ -58,4 +53,11 @@ export default {
   padding: 5px;
   height: 50px;
 }
+ i.emoji-picker-icon.emoji-picker {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAB+ElEQVRYhe2WPS8EURSGHxQkFOIrNHaRbFT8BDWdwkfYWk2Cf+CnIAoJkRAdtXJVW4hkKZesECJ2RzHvNbOzd3bvjO14k5vZnI/3nHPv2XsP/OOvoyOh/RSwAswBM0C/5M9AAbgCjoC7NuX3gyxwCFQBr8WqAgdApl3B88CLyD+BY8mmgV6tacmOZePJZ/23wXeBmghPgJyDT062nnx30gbPi6CqRJJiV741UuxEhmDbU1egJDzgFb+BnXFIsO0GC8CD1rzFJ05/Kq4D1+BT+Fv3Sf2ZPxB0esniF6fPiesLmIg6dVqIViQ/A4ohudci8Th9UVxd4m6JS5HlI/J5/MpK2I+gmT4vzguXBB5l7PKXc0WO+KNrwIeM+9qYQJ8436MKWw+Ys0z6TjSDidPQJ7YEnvQdi8hngY0YnzDfhmzDGNW33DRNIa4JzyVfauK7LJvziDy2CW3VXOu7aEkMYA8YtviNSIclkOG6svg1YBL7RdQD3OJXUsSvdhAY0u+idAWgO+QXvoiyLgmA/SoG/40wSdhWARiP+CS+ik0g8xhFX8IeYAu4Ad60boBN6iuH4DGqkGJAWad9z/FaCn/Af4rNQHKK+0Bitr0GbKcNbpB2JKvwi8qjyOA3kctQ+gXs43jmSa/bLLBKMJYPSF6mfiy/T8j7jz+Mb+FSr4ihuoIZAAAAAElFTkSuQmCC') no-repeat center center;
+  width: 24px;
+  height: 24px;
+  opacity: 0.5;
+  cursor: pointer
+ }
 </style>

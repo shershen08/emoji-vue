@@ -13,7 +13,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "nanoscroller": "^0.8.7",
     "onesignal-emoji-picker": "^1.0.0",
