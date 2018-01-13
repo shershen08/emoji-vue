@@ -1,7 +1,7 @@
 <template>
   <div class="emoji-vue-wraper">
     <div class="emoji-picker-container">
-      <textarea cols="50" rows="10" data-vue-emojiable="true" class="emoji-vue-textarea"></textarea>
+      <textarea cols="50" v-model="value" rows="10" data-vue-emojiable="true" class="emoji-vue-textarea"></textarea>
     </div>
   </div>
 </template>
@@ -28,7 +28,23 @@ export default {
   name: "VueEmoji",
   props : {
     width: {
-      String
+      type: String,
+      default: '200'
+    },
+    height: {
+      type: String,
+      default: '50'
+    },
+    value: {
+      type: String,
+      default: ''
+    }
+  },
+  watch: {
+    value: function(newVal){
+       Vue.nextTick(() => {
+         this.$el.querySelector(".emoji-wysiwyg-editor").innerHTML = newVal
+       })
     }
   },
   methods: {
@@ -43,7 +59,9 @@ export default {
       })
       window.emojiPicker.discover()
       Vue.nextTick(() => {
-          this.$el.querySelector(".emoji-wysiwyg-editor").style.width=`${this.width}px`
+        const editor = this.$el.querySelector(".emoji-wysiwyg-editor");
+          editor.style.width=`${this.width}px`
+          editor.style.height=`${this.height}px`
           this.$el.querySelector(".emoji-picker-container").style.width=`${Number(this.width) + 50}px`
         })
     }
