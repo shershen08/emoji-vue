@@ -7,22 +7,19 @@
 </template>
 
 <script>
-
+import jQuery from 'jquery'
 import ns from 'nanoscroller/bin/javascripts/jquery.nanoscroller'
 import Vue from "vue";
 import "./lib/css/emoji.css";
 import "nanoscroller/bin/css/nanoscroller.css";
 
 import storageUtils from "./lib/js/util";
-import {emojiareaPlugin} from "./lib/js/jquery.emojiarea";
 import {EmojiPicker} from "./lib/js/emoji-picker";
 
 import './lib/img/IconsetSmiles.png'
 import './lib/img/IconsetSmiles_1x.png'
 import './lib/img/IconsetW.png'
 import './lib/img/IconsetW_1x.png'
-
-emojiareaPlugin(jQuery, window, document)
 
 export default {
   name: "VueEmoji",

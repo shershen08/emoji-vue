@@ -1,3 +1,4 @@
+import jQuery from 'jquery'
 import Config from './config'
 import Tether from 'tether'
 import img_blank from '../img/blank.gif'

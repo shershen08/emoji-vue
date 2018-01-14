@@ -1,6 +1,10 @@
 import Config from './config'
+import jQuery from 'jquery'
+const $ = jQuery
+import {emojiareaPlugin} from "./jquery.emojiarea";
 
- 
+emojiareaPlugin(jQuery, window, document)
+
 function cancelEvent (event) {
   event = event || window.event;
   if (event) {
