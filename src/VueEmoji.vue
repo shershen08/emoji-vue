@@ -1,5 +1,5 @@
 <template>
-  <div class="emoji-vue-wraper">
+  <div class="emoji-vue-wraper" v-bind:id="id">
     <div class="emoji-picker-container">
       <textarea cols="50" v-model="value" rows="10" data-vue-emojiable="true" class="emoji-vue-textarea"></textarea>
     </div>
@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import jQuery from 'jquery'
 import ns from 'nanoscroller/bin/javascripts/jquery.nanoscroller'
 import Vue from "vue";
 import "./lib/css/emoji.css";
@@ -15,6 +14,7 @@ import "nanoscroller/bin/css/nanoscroller.css";
 
 import storageUtils from "./lib/js/util";
 import {EmojiPicker} from "./lib/js/emoji-picker";
+import {getGuid} from './lib/js/jquery.emojiarea'
 
 import './lib/img/IconsetSmiles.png'
 import './lib/img/IconsetSmiles_1x.png'
@@ -23,6 +23,11 @@ import './lib/img/IconsetW_1x.png'
 
 export default {
   name: "VueEmoji",
+  data () {
+    return {
+      id: getGuid()
+    }
+  },
   props : {
     width: {
       type: String,
@@ -47,7 +52,7 @@ export default {
   methods: {
     initEmojiPlugin() {
       window.emojiPicker = new EmojiPicker({
-        emojiable_selector: "[data-vue-emojiable=true]",
+        emojiable_selector: `#${this.id} [data-vue-emojiable=true]`,
         assetsPath: "",
         popupButtonClasses: "smile-icon",
         onChangecontent: (textAreaValue) => {

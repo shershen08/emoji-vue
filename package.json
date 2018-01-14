@@ -1,6 +1,6 @@
 {
   "name": "emoji-vue",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Add emojis to your vuejs project",
   "author": "Mikhail Kuznetcov <michail.kuznetsov@gmail.com>",
   "private": false,

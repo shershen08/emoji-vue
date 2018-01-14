@@ -8,15 +8,14 @@ import img2 from '../img/emoji_spritesheet_2.png'
 import img3 from '../img/emoji_spritesheet_3.png'
 import img4 from '../img/emoji_spritesheet_4.png'
 
+export const getGuid = () => {
+	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+		var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+		return v.toString(16);
+	});
+}
 
 export const emojiareaPlugin = ($, window, document) => {
-
-	function getGuid() {
-		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-			var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-			return v.toString(16);
-		});
-	}
 
 	var ELEMENT_NODE = 1;
 	var TEXT_NODE = 3;
@@ -48,14 +47,15 @@ export const emojiareaPlugin = ($, window, document) => {
 		return this
 			.each(function () {
 				var originalInput = $(this);
+				var id = getGuid();
+
 				if ('contentEditable' in document.body
 					&& options.wysiwyg !== false) {
-					var id = getGuid();
 					new EmojiArea_WYSIWYG(originalInput, id, $.extend({}, options));
 				} else {
-					var id = getGuid();
 					new EmojiArea_Plain(originalInput, id, options);
 				}
+				
 				originalInput.attr(
 					{
 						'data-emojiable': 'converted',
@@ -142,7 +142,6 @@ export const emojiareaPlugin = ($, window, document) => {
 	})();
 
 	util.insertAtCursor = function(text, el) {
-		console.log('insertAtCursor')
 		text = ' ' + text;
 		var val = el.value, endIndex, startIndex, range;
 		if (typeof el.selectionStart != 'undefined'
@@ -307,8 +306,6 @@ const smileyCategoryFilename = sprites[category]
 		 * save recent emojis
 		 */
 		util.emojiInserted(emoji, this.menu);
-
-		console.log('change')
 		this.$textarea.trigger('change');
 	};
 
