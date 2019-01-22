@@ -1,6 +1,6 @@
 {
   "name": "emoji-vue",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Add emojis to your vuejs project",
   "author": "Mikhail Kuznetcov <michail.kuznetsov@gmail.com>",
   "private": false,
@@ -72,14 +72,5 @@
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "3.0.0",
     "webpack-merge": "^4.1.0"
-  },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }
