@@ -1,6 +1,6 @@
 {
   "name": "emoji-vue",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Add emojis to your vuejs project",
   "author": "Mikhail Kuznetcov <michail.kuznetsov@gmail.com>",
   "private": false,
@@ -10,7 +10,7 @@
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -47,7 +47,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^1.1.4",
+    "file-loader": "^1.1.11",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.0",
@@ -69,16 +69,8 @@
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": ">=3.1.11",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "3.0.0",
     "webpack-merge": "^4.1.0"
-  },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }

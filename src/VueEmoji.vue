@@ -8,12 +8,12 @@
 
 <script>
 import ns from 'nanoscroller/bin/javascripts/jquery.nanoscroller'
-import Vue from "vue";
-import "./lib/css/emoji.css";
-import "nanoscroller/bin/css/nanoscroller.css";
+import Vue from 'vue'
+import './lib/css/emoji.css'
+import 'nanoscroller/bin/css/nanoscroller.css'
 
-import storageUtils from "./lib/js/util";
-import {EmojiPicker} from "./lib/js/emoji-picker";
+import storageUtils from './lib/js/util'
+import {EmojiPicker} from './lib/js/emoji-picker'
 import {getGuid} from './lib/js/jquery.emojiarea'
 
 import './lib/img/IconsetSmiles.png'
@@ -22,13 +22,13 @@ import './lib/img/IconsetW.png'
 import './lib/img/IconsetW_1x.png'
 
 export default {
-  name: "VueEmoji",
+  name: 'VueEmoji',
   data () {
     return {
       id: getGuid()
     }
   },
-  props : {
+  props: {
     width: {
       type: String,
       default: '200'
@@ -43,38 +43,41 @@ export default {
     }
   },
   watch: {
-    value: function(newVal){
-       Vue.nextTick(() => {
-         this.$el.querySelector(".emoji-wysiwyg-editor").innerHTML = newVal
-       })
+    value: function (newVal) {
+      Vue.nextTick(() => {
+        this.$el.querySelector('.emoji-wysiwyg-editor').innerHTML = newVal
+      })
     }
   },
   methods: {
-    initEmojiPlugin() {
+    clear () {
+      this.$el.querySelector('.emoji-wysiwyg-editor').innerHTML = ''
+    },
+    initEmojiPlugin () {
       window.emojiPicker = new EmojiPicker({
         emojiable_selector: `#${this.id} [data-vue-emojiable=true]`,
-        assetsPath: "",
-        popupButtonClasses: "smile-icon",
+        assetsPath: '',
+        popupButtonClasses: 'smile-icon',
         onChangecontent: (textAreaValue) => {
           this.$emit('input', {data: textAreaValue})
         }
       })
       window.emojiPicker.discover()
       Vue.nextTick(() => {
-        const editor = this.$el.querySelector(".emoji-wysiwyg-editor");
-          editor.style.width=`${this.width}px`
-          editor.style.height=`${this.height}px`
-          this.$el.querySelector(".emoji-picker-container").style.width=`${Number(this.width) + 50}px`
-        })
+        const editor = this.$el.querySelector('.emoji-wysiwyg-editor')
+        editor.style.width = `${this.width}px`
+        editor.style.height = `${this.height}px`
+        this.$el.querySelector('.emoji-picker-container').style.width = `${Number(this.width) + 50}px`
+      })
     }
   },
-  mounted: function() {
+  mounted: function () {
     Vue.nextTick(() => {
       storageUtils()
       this.initEmojiPlugin()
-    });
+    })
   }
-};
+}
 </script>
 
 <style>
