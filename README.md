@@ -5,9 +5,6 @@
 A Vue.js project implementing a input field addon allowing to add emojis via dropdown.
 
 
-**[DEMO](https://shershen08.github.io/emoji-vue/)**
-
-
 ![dependencies status](https://david-dm.org/shershen08/emoji-vue/status.svg)
 
 ## Install ⚙️
@@ -29,14 +26,17 @@ import VueEmoji from 'emoji-vue'
   methods: {
       onInput(event) {
           //event.data contains the value of the textarea
-      }
+      },
+      clearTextarea(){
+        this.$refs.emoji.clear()
+      },  
   },
   components: {
     VueEmoji
   }
 
 //in template section
-<VueEmoji @input="onInput" :value="myText" />
+<VueEmoji ref="emoji" @input="onInput" :value="myText" />
 ```
 
 ## Event & properties 📕 📗 📘 📙
